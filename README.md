@@ -27,5 +27,5 @@ Twitter Data Mining project for CSCI 581 Fall 2016.
 
 ### Who do I talk to? ###
 
-* Morgan Dock, Ethan Luckett, Dixon Styres
+* Dixon Styres
 # twiRac
