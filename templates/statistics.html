@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en"><head>   
+<meta charset="utf-8" />
+<title>Chart.js </title>     
+<!-- import plugin script --> 
+<script type="text/javascript" src="{{ url_for('static', filename='Chart.min.js') }}"></script></head><body>
+<h1>Top Cities with Most Tweets Collected</h1><!-- bar chart canvas element -->
+<canvas id="chart" width="1000" height="400"></canvas>
+<h1>Top States with Most Tweets Collected</h1>
+<canvas id="chart3" width="1000" height="400"></canvas>
+<h1>Top People with Most Tweets Collected</h1>
+<canvas id="chart2" width="1000" height="400"></canvas>
+<h1>Top Cities with highest Average Sentiment</h1>
+<canvas id="chart4" width="1000" height="400"></canvas>
+<h1>Top States with highest Average Sentiment</h1>
+<canvas id="chart5" width="1000" height="400"></canvas>
+<h1>Top People with highest Average Sentiment</h1>
+<canvas id="chart6" width="1000" height="400"></canvas>
+<script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels[0] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[0] %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+   
+   var barData2 = {
+   labels : [{% for item in labels[1] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[1] %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+   
+   var barData3 = {
+   labels : [{% for item in labels[2] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[2] %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+   
+   var barData4 = {
+   labels : [{% for item in labels[3] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[3] %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+   
+   var barData5 = {
+   labels : [{% for item in labels[4] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[4] %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+   var barData6 = {
+   labels : [{% for item in labels[5] %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values[5] %}
+                      {{item}},
+                    {% endfor %}],
+      }
+      ]
+   }
+ 
+   // get bar chart canvas
+   var mychart = document.getElementById("chart").getContext("2d");
+ 
+   steps = 10
+   max = {{limit[0]}}
+   // draw bar chart
+   new Chart(mychart).Bar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+   
+      // get bar chart canvas
+   var mychart2 = document.getElementById("chart2").getContext("2d");
+
+   steps = 10
+   max = {{limit[1]}}
+   // draw bar chart
+   new Chart(mychart2).Bar(barData2, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+   
+   var mychart3 = document.getElementById("chart3").getContext("2d");
+   steps = 10
+   max = {{limit[2]}}
+   new Chart(mychart3).Bar(barData3, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+   var mychart4 = document.getElementById("chart4").getContext("2d");
+   steps = 10
+   max = {{limit[3]}}
+   new Chart(mychart4).Bar(barData4, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+   var mychart5 = document.getElementById("chart5").getContext("2d");
+   steps = 10
+   max = {{limit[4]}}
+   new Chart(mychart5).Bar(barData5, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+   var mychart6 = document.getElementById("chart6").getContext("2d");
+   steps = 10
+   max = {{limit[5]}}
+   new Chart(mychart6).Bar(barData6, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+ 
+</script>
+</body></html>

@@ -1,0 +1,6 @@
+flask
+flask-googlemaps
+jinja2
+tweepy
+scikit-learn
+pandas

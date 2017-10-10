@@ -1,0 +1,5 @@
+consumer_key = "bdtCzlfcp5L15qQKmUuLaZwHK"
+consumer_secret = "xC9cN89S5v1jyhXKaaUf6e9M0GLsz099qQkZOVVu6T4VmcWLzJ"
+access_token = "870361260-ZAxvA33nlpXtuX9LQuAibjuoOIoX8D1tIf5c5Ywn"
+access_token_secret = "n0cGFe3uPDGW4aIJd4x0Z25uHfmtT9DQC6iGLcdY2aHS7"
+google_token_key = "AIzaSyAZzeHhs-8JZ7i18MjFuM35dJHq70n3Hx4"
